@@ -1,0 +1,84 @@
+import java.util.Scanner;
+class Student
+{
+	String usn,name;
+	int sem;
+}
+class Test extends Student
+{
+	int cie[]= new int[3];
+	int credit[]=new int[3];
+		
+}
+class Exam extends Test
+{
+	int see[]=new int[3];
+}
+class Result extends Exam
+{
+	int s,r1=0,r2=0;
+	int g[]=new int[3]; 
+	void calc()
+	{
+		Scanner sc=new Scanner(System.in);
+  		System.out.println("enter usn,name and sem");
+		usn=sc.next();
+		name=sc.next();
+		sem=sc.nextInt(); 
+		System.out.println("enter cie see and credits marks for each 3 course");
+		for(int i=0;i<3;i++)
+		{
+			cie[i]=sc.nextInt();
+			see[i]=sc.nextInt();
+			credit[i]=sc.nextInt();
+		}
+		for(int i=0;i<3;i++)
+		{
+			s=0;
+			s=s+cie[i]+see[i]/2;
+			if(s>90)
+			g[i]=10;
+			else if(s>80)
+			g[i]=9;
+			else if(s>70)
+			g[i]=8;
+			else if(s>60)
+			g[i]=7;
+			else if(s>50)
+			g[i]=6;
+			else if(s>40)
+			g[i]=5;
+			else if(s>30)
+			g[i]=4;
+		}
+		for(int i=0;i<3;i++)
+		{	
+			r1=r1+credit[i];
+			r2=r2+credit[i]*g[i];
+		}
+	}
+	void display()
+	{
+		double x=(r2)/r1;
+		System.out.println("details: "+name+" "+usn+" "+sem);
+		System.out.println("cgpa: "+x);	
+	}			
+
+	public static void main(String args[])
+	{
+		int n;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter no. of student result objects");
+		n=sc.nextInt();
+		Result r[]=new Result[n];
+		for(int i=0;i<n;i++)
+		{
+			r[i]=new Result();
+			r[i].calc();
+			r[i].display();
+		}
+	}
+}	
+	
+		
+		
