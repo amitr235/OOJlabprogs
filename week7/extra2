@@ -1,0 +1,69 @@
+//Develop a Java program to create a class PLAYER with member variables name,
+//matches_played and average. This class has an abstract method cal_average(String,int,int).
+//Derive two classes BATSMAN and BOWLER from PLAYER. Class BATSMAN has a
+//member variable runs_scored. Class BOWLER has a member variable runs_given. Create m
+//BATSMAN objects and n BOWLER objects. Calculate and display the average runs scored
+//by each BATSMAN and average runs given by each BOWLER.
+import java.util.Scanner;
+abstract class PLAYER
+{
+    String name;
+    int matches_played;
+    int average;
+    public abstract void cal_average();
+}
+class BATSMAN extends PLAYER
+{
+    int runs_scored;
+    public void cal_average()
+    {
+        Scanner sc=new Scanner(System.in);
+	System.out.println("enter name of batsman");
+	name=sc.nextLine();
+        System.out.println("Enter runs scored by batsman");
+        runs_scored=sc.nextInt();
+        System.out.println("enter no. of matches played");
+	matches_played=sc.nextInt();
+        average=runs_scored/matches_played;
+        System.out.println("Average runs:"+average);
+    }
+}
+class BOWLER extends PLAYER
+{
+    int runs_given;
+    public void cal_average()
+    {
+        Scanner sc=new Scanner(System.in);
+	System.out.println("enter name of bowler");
+	name=sc.nextLine();
+        System.out.println("Enter runs given by bowler");
+        runs_given=sc.nextInt();
+        System.out.println("enter no. of matches played");
+	matches_played=sc.nextInt();
+        average=runs_given/matches_played;
+        System.out.println("Average runs:"+average);
+    }
+}
+class Cricket
+{
+    public static void main(String s[])
+    {
+	Scanner sc=new Scanner(System.in);
+        int m,n;
+        System.out.println("enter no. of batsman and bowler objects ");
+        m=sc.nextInt();
+        n=sc.nextInt();
+        BATSMAN b1[]=new BATSMAN[m];
+        for(int i=0;i<m;i++)
+        {
+            b1[i]=new BATSMAN();
+            b1[i].cal_average();
+        }
+        BOWLER  b2[]=new BOWLER[n];
+	for(int i=0;i<n;i++)
+        {
+            b2[i]=new BOWLER();
+            b2[i].cal_average();
+        }
+    }
+}
