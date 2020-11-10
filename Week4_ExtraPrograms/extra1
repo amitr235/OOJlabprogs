@@ -1,0 +1,49 @@
+import java.util.Scanner;
+class Player{
+
+int id,i,nom,sum;
+int scores[];
+double average;
+String name;
+
+Player(){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter your id:");
+id=sc.nextInt();
+System.out.println("Enter your name:");
+name=sc.next();
+System.out.println("Enter the number of matches played:");
+nom=sc.nextInt();
+scores=new int[nom];
+for(i=0;i<nom;i++){
+System.out.println("Enter the score in match:");
+scores[i]=sc.nextInt();
+}
+
+}
+void printdata(){
+System.out.println(" id:"+id);
+System.out.println(" name:"+name);
+System.out.println("No of matches played:"+nom);
+for(i=0;i<nom;i++){
+System.out.println("Score :\n"+scores[i]);
+
+}
+}
+void avg(){
+for(i=0;i<nom;i++){
+sum+=scores[i];
+}
+System.out.println("Average:"+(double)sum/nom);
+}
+}
+class Testj{
+
+public static void main(String[] args) {
+Player pl=new Player();
+pl.printdata();
+pl.avg();
+}
+
+}
+
