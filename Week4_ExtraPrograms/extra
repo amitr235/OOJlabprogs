@@ -1,0 +1,108 @@
+import java.util.Scanner;
+class Book{
+
+int book_id,i,nop,year_of_pub;
+double price;
+String book_title,author,publisher;
+
+void getdata(){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter Book id:");
+book_id=sc.nextInt();
+System.out.println("Enter book title:");
+book_title=sc.next();
+System.out.println("Enter the number of pages of book:");
+nop=sc.nextInt();
+
+System.out.println("Enter Book's year of publishing:");
+year_of_pub=sc.nextInt();
+System.out.println("Enter price of book:");
+price=sc.nextDouble();
+System.out.println("Enter author of book:");
+author=sc.next();
+System.out.println("Enter publisher of book:");
+publisher=sc.next();
+}
+void printdata(){
+System.out.println("Book id:"+book_id);
+System.out.println("book title:"+book_title);
+System.out.println("number of pages of book:"+nop);
+System.out.println("Book's year of publishing:"+year_of_pub);
+System.out.println("price of book:"+price);
+System.out.println("author of book:"+author);
+System.out.println("publisher of book:"+publisher);
+}
+void author_name(){
+System.out.println("Book id:"+book_id);
+System.out.println("book title:"+book_title);
+System.out.println("number of pages of book:"+nop);
+System.out.println("Book's year of publishing:"+year_of_pub);
+System.out.println("price of book:"+price);
+System.out.println("author of book:"+author);
+System.out.println("publisher of book:"+publisher);
+
+}
+void most_exp(){
+System.out.println("The most expensive book is "+book_title);
+}
+
+void count(int c){
+System.out.println("Number of books published in 2020:"+c);
+}
+void least_pages(){
+System.out.println("Book id:"+book_id);
+System.out.println("book title:"+book_title);
+System.out.println("number of pages of book:"+nop);
+System.out.println("Book's year of publishing:"+year_of_pub);
+System.out.println("price of book:"+price);
+System.out.println("author of book:"+author);
+System.out.println("publisher of book:"+publisher);
+}
+}
+class Testj{
+
+public static void main(String[] args) {
+String name;
+int price,count=0;
+Book bk1=new Book();
+bk1.getdata();
+Book bk2=new Book();
+bk2.getdata();
+Book bk3=new Book();
+bk3.getdata();
+bk1.printdata();
+bk2.printdata();
+bk3.printdata();
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the name of author");
+name=sc.next();
+
+if(name==bk1.author)
+bk1.author_name();
+else if(name==bk2.author)
+bk2.author_name();
+else
+bk3.author_name();
+if(bk1.price>bk2.price && bk1.price>bk3.price)
+bk1.most_exp();
+else if(bk2.price>bk1.price && bk2.price>bk3.price)
+bk2.most_exp();
+else
+bk3.most_exp();
+if(bk1.year_of_pub==2020)
+count++;
+if(bk2.year_of_pub==2020)
+count++;
+if(bk3.year_of_pub==2020)
+count++;
+bk1.count(count);
+if(bk1.nop<bk2.nop && bk1.nop<bk3.nop)
+bk1.least_pages();
+else if(bk2.nop<bk1.nop && bk2.nop<bk3.nop)
+bk2.least_pages();
+else
+bk3.least_pages();
+}
+
+}
+
