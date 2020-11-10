@@ -1,0 +1,53 @@
+import java.util.Scanner;
+class Employee
+{
+	String empid;
+	String empname;
+	int empnohrs,empbasic;
+	int emphra,empda,empit,n;
+	double empgross=0.0,tsal;
+	public void accept()
+	{
+        System.out.println("Enter employee id, name and hrs");
+        Scanner sc=new Scanner(System.in);
+        empid=sc.next();
+        empname=sc.next();
+        empnohrs=sc.nextInt();
+		System.out.println("Enter basic salary");
+		empbasic=sc.nextInt();
+		System.out.println("Enter hra ,da and it");
+		emphra=sc.nextInt();
+		empda=sc.nextInt();
+		empit=sc.nextInt();
+	}
+	public void calc()
+	{
+		empgross= empbasic + empbasic*emphra + empbasic*empda - empbasic*empit;
+	}	
+	void overtime()
+	{
+		if(empnohrs>200)
+		{
+			n=empnohrs-200;
+			tsal=empgross+(n*100.0);
+			System.out.println("gross salary:"+tsal);
+		}
+		else
+		{
+			n=200-empnohrs;
+			tsal=empgross-(n*100.0);
+			System.out.println("gross salary:"+tsal);
+		}
+	}
+}
+class emp
+{
+	public static void main(String args[])
+	{
+		Employee e1=new Employee();
+		e1.accept();
+		e1.calc();
+		e1.overtime();
+	}
+}
+	
