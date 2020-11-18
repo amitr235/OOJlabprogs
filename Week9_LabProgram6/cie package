@@ -18,7 +18,7 @@ public void details()
 }
 public class Internal extends Student
  {
-    public double ciemarks[]=new double[5];;
+    public double ciemarks[]=new double[5];
     public void accept1()
     {
         Scanner sc = new Scanner(System.in);
