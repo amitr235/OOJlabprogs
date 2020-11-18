@@ -1,0 +1,25 @@
+package see;
+import cie.*;
+import java.util.Scanner;
+public class External extends cie.Internal
+{
+    public double seemarks[]=new double[5];
+    public void accept2()
+    {
+        Scanner sc=new Scanner(System.in);
+        for(int i=0;i<5;i++){
+            System.out.println("see marks /100 for subject"+(i+1)+":");
+            seemarks[i]= sc.nextDouble();
+        }
+    }
+    public void display()
+    {
+        double t;
+        for(int i=0;i<5;i++)
+        {   
+            System.out.println("subject"+(i+1)+"="+(ciemarks[i]+(seemarks[i]/2.0)));
+
+        }
+    }
+
+}
