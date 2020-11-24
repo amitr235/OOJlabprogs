@@ -1,0 +1,57 @@
+//Write a program that demonstrates handling of exceptions in inheritance tree. Create a base
+//class called Father and derived class called Son which extends the base class. In Father
+//class, implement a constructor which takes the age and throws the exception Wrong Age( )
+//when the input age<0. In Son class, implement a constructor that cases both father and son’s
+//age and throws an exception if son’s age is >=father’s age.
+class WrongAge extends Exception
+{
+	public String toString()
+	{
+		return " enter the right age:";
+	}
+}
+class Father
+{
+	public int agef=0;
+	Father(int age1) throws WrongAge
+	{
+        agef=age1;
+        if(agef<0)
+        throw new WrongAge();
+        else
+        System.out.println("Fathers' age:"+agef);
+        
+	}
+}
+class Son extends Father
+{
+    int ages=0;
+	Son(int age1,int age2) throws WrongAge
+	{
+        super(age1);
+        ages=age2;
+        if(ages>agef)
+        throw new WrongAge();
+        else
+        System.out.println("Son age:"+ages);
+
+
+	}
+}
+class lab8
+{
+	public static void main(String args[]) 
+	{
+		int j=30;
+        int k=53;
+        try{
+            Father f=new Father(j);
+			Son s=new Son(j,k);
+		}catch(WrongAge e){
+			System.out.println("Exception " + e);
+        }
+		
+			
+		
+	}
+}
