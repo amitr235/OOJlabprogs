@@ -1,0 +1,40 @@
+class NewThread implements Runnable
+    {
+    String name; 
+    Thread t;
+    int time;
+    NewThread(String n,int tm) 
+    {
+    name = n;
+    time=tm;
+    t = new Thread(this, n);
+
+    System.out.println("New thread: " + t);
+    t.start(); 
+    }
+    
+    public void run() 
+    {
+    try 
+    {
+    for(int i = 5; i > 0; i--) 
+    {
+        
+    System.out.println(name + ": " + i);
+    Thread.sleep(time);
+    }
+    } catch (InterruptedException e) {
+    System.out.println(name + "Interrupted");
+    }
+    }
+    }
+ 
+    
+    class lab9 {
+    public static void main(String args[]) {
+    
+    NewThread o1=new NewThread("BMS College of Engineering",10000);
+    NewThread o2=new NewThread("CSE",2000);
+    
+    }
+    }
