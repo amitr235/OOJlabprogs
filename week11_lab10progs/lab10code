@@ -1,0 +1,66 @@
+//Write a program that creates a user interface to perform integer divisions. The user enters two
+//numbers in the text fields, Num1 and Num2. The division of Num1 and Num2 is displayed in the
+//Result field when the Divide button is clicked. If Num1 or Num2 were not an integer, the program
+//would throw a NumberFormatException. If Num2 were Zero, the program would throw an
+//Arithmetic Exception Display the exception in a message dialog box.
+import java.awt.*;
+import java.awt.event.*;
+
+public class lab10 extends Frame implements ActionListener
+{
+    TextField num1,num2;
+    Button divide=new Button("Divide");
+    float res=0;
+    String error=" ";
+    public lab10()
+    {
+        setLayout(new FlowLayout());
+        num1=new TextField(1);
+        num2=new TextField(1);
+        Label result=new Label("num1:",Label.RIGHT);
+        Label error=new Label("num2:",Label.RIGHT);
+        add(num1);
+        add(num2);
+        add(divide);
+        divide.addActionListener(this);
+        addWindowListener(new WinAdapter());
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        if(ae.getSource()==divide)
+        {
+            try 
+            {
+                int n1=Integer.parseInt(num1.getText());
+                int n2=Integer.parseInt(num2.getText());
+                res=(float)n1/n2;
+            }catch(NumberFormatException exception){
+                res=0;
+                error="entered no. not integer";
+            }catch(ArithmeticException exception){
+                res=0;
+                error="you divided by 0";
+            }    
+            repaint();
+        }
+    }
+    public void paint(Graphics g)
+    {
+        g.drawString("result:"+String.valueOf(res),20,100);
+        g.drawString("error:"+error,20,150);
+    }
+    public static void main(String args[])
+    {
+        lab10 l=new lab10();
+        l.setSize(new Dimension(400,400));
+        l.setTitle("Divide");
+        l.setVisible(true);
+    }
+}
+class WinAdapter extends WindowAdapter
+{
+    public void window(WindowEvent we)
+    {
+        System.exit(0);
+    }
+}
